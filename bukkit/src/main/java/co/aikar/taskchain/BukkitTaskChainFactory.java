@@ -41,7 +41,11 @@ public class BukkitTaskChainFactory extends TaskChainFactory {
     }
 
     public static TaskChainFactory create(Plugin plugin) {
-        return new BukkitTaskChainFactory(plugin, new TaskChainAsyncQueue());
+        return create(plugin, new TaskChainAsyncQueue());
+    }
+
+    public static TaskChainFactory create(Plugin plugin, AsyncQueue asyncQueue) {
+        return new BukkitTaskChainFactory(plugin, asyncQueue);
     }
 /* @TODO: #9 - Not Safe to do this
     public static TaskChainFactory create(Plugin plugin, ThreadPoolExecutor executor) {
